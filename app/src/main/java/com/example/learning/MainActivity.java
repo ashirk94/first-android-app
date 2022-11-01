@@ -1,10 +1,14 @@
 package com.example.learning;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,9 +19,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void disable(View v) {
-        View view = findViewById(R.id.btn1);
-        view.setEnabled(false);
-        Button btn = (Button) view;
+        v.setEnabled(false);
+        Button btn = (Button) v;
         btn.setText("Disabled");
     }
+    public void handleText(View v) {
+        TextView input = findViewById(R.id.editTextTextPersonName);
+        TextView output = (TextView)findViewById(R.id.output);
+
+        String result = input.getText().toString();
+        //Log.v("info", result);
+        Toast.makeText(this, result, Toast.LENGTH_LONG).show();
+        output.setText(result);
+    }
+
 }
