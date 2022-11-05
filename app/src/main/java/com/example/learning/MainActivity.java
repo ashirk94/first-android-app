@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,13 +25,20 @@ public class MainActivity extends AppCompatActivity {
         btn.setText("Disabled");
     }
     public void handleText(View v) {
-        TextView input = findViewById(R.id.editTextTextPersonName);
+        TextView input = findViewById(R.id.editText);
         TextView output = (TextView)findViewById(R.id.output);
 
         String result = input.getText().toString();
         //Log.v("info", result);
         Toast.makeText(this, result, Toast.LENGTH_LONG).show();
         output.setText(result);
+    }
+    public void launchSettings(View v) {
+        //launch new activity
+
+        Intent i = new Intent(this, SettingsActivity.class);
+
+        startActivity(i);
     }
 
 }
