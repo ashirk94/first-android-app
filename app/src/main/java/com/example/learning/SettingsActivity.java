@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -12,13 +13,8 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-    }
-
-    public void launchSettings(View v) {
-        //launch new activity
-
-        Intent i = new Intent(this, MainActivity.class);
-
-        startActivity(i);
+        Intent i = getIntent();
+        String message = i.getStringExtra("COOL");
+        ((TextView)findViewById(R.id.example)).setText(message);
     }
 }
